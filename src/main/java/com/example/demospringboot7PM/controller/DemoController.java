@@ -1,6 +1,7 @@
 package com.example.demospringboot7PM.controller;
 
 import com.example.demospringboot7PM.model.Student;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +45,21 @@ public class DemoController {
         Student obj= new Student("Raj",23,"CS");
 
         return obj;
+    }
+
+
+    @RequestMapping("/get_first_student")
+    public Student getFirstStudent(){
+
+        ArrayList<Student> students= new ArrayList<>();
+        Student obj= new Student("Raj",23,"CS");
+        Student obj2= new Student("Mukesh",23,"CS");
+        Student obj3= new Student("Rahul",23,"CS");
+        students.add(obj);
+        students.add(obj2);
+        students.add(obj3);
+
+        return students.get(0);
     }
 
 }
