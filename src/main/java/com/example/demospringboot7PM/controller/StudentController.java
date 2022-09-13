@@ -1,10 +1,7 @@
 package com.example.demospringboot7PM.controller;
 
 import com.example.demospringboot7PM.model.Student;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -16,6 +13,14 @@ public class StudentController {
     ArrayList <Student> studentArrayList= new ArrayList<>();
 
     // C- CREATE/ADD END POINT
+
+    @RequestMapping("/add_std")
+    public String add_student(@RequestBody Student student){
+
+        studentArrayList.add(student);
+
+        return "Successfully added Student into List using Request Body";
+    }
 
     @RequestMapping("add_student/{name}/{age}/{dept}")
     public String add(@PathVariable String name,@PathVariable int age, @PathVariable String dept){
