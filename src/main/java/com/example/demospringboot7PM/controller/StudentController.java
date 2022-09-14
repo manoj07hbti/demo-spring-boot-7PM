@@ -14,7 +14,8 @@ public class StudentController {
 
     // C- CREATE/ADD END POINT
 
-    @RequestMapping("/add_std")
+   // @RequestMapping(value = "/add_std", method = RequestMethod.POST)
+    @PostMapping("/add_std")
     public String add_student(@RequestBody Student student){
 
         studentArrayList.add(student);
@@ -33,7 +34,8 @@ public class StudentController {
     }
 
     //R- READ or GET
-    @RequestMapping("/students")
+    //@RequestMapping(value = "/students", method = RequestMethod.GET)
+    @GetMapping("/students")
     public ArrayList<Student>  getStudentArrayList(){
 
         return studentArrayList;
@@ -41,7 +43,8 @@ public class StudentController {
 
     //U- update
 
-    @RequestMapping("/update_student")
+    //@RequestMapping(value = "/update_student",method = RequestMethod.PUT)
+    @PutMapping("/update_student")
     public String updateName(@RequestParam String name,@RequestParam int index){
        Student student= studentArrayList.get(index);
        student.setName(name);
@@ -50,7 +53,8 @@ public class StudentController {
     }
 
     //D- delete
-    @RequestMapping("/delete_student")
+    //@RequestMapping(value = "/delete_student", method = RequestMethod.DELETE)
+    @DeleteMapping("/delete_student")
     public String delete(@RequestParam int index){
 
         studentArrayList.remove( index);
