@@ -1,10 +1,27 @@
 package com.example.demospringboot7PM.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "test_student_table")
 public class Student {
+
+    @Id
+    @GeneratedValue
+    long id;// primary key of Table 1,2,3,4......
+
 
     String name;
     int age;
+
+    @Column(name="stream") // if we want to rename any column
     String section;
+
+    // default constructor
+    public Student() {
+    }
 
     // parameterized constructor
 
