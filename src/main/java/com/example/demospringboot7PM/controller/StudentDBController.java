@@ -3,10 +3,7 @@ package com.example.demospringboot7PM.controller;
 import com.example.demospringboot7PM.model.Student;
 import com.example.demospringboot7PM.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +30,19 @@ public class StudentDBController {
         return service.getAllStudent();
     }
 
+    //U
+
+    @PutMapping("update_std_db")
+    public String update(@RequestParam long id,@RequestParam String name){
+
+      return   service.update(id,name);
+
+    }
+
+    // delete
+    @DeleteMapping("delete_std_db")
+    public String delete(@RequestParam long id){
+
+        return service.delete(id);
+    }
 }
