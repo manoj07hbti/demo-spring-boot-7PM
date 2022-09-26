@@ -4,6 +4,7 @@ import com.example.demospringboot7PM.model.Student;
 import com.example.demospringboot7PM.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,5 +47,14 @@ public class StudentService {
         return "Successfully deleted data from DB";
     }
 
+    public Student findByName( String name){
+
+        return  repository.findByName(name);
+    }
+
+    public Student findByAge( int age){
+
+        return  repository.findByAge(age);
+    }
 
 }

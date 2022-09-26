@@ -1,6 +1,7 @@
 package com.example.demospringboot7PM.controller;
 
 import com.example.demospringboot7PM.model.Student;
+import com.example.demospringboot7PM.repository.StudentRepository;
 import com.example.demospringboot7PM.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ public class StudentDBController {
 
     @Autowired
     StudentService service;
+
+    @Autowired
+    StudentRepository repository;
 
     //C
     @PostMapping("/add_std_db")
@@ -44,5 +48,17 @@ public class StudentDBController {
     public String delete(@RequestParam long id){
 
         return service.delete(id);
+    }
+
+    @GetMapping("/findbyname")
+    public Student student(@RequestParam String name){
+
+      return  service.findByName(name);
+    }
+
+    @GetMapping("/findbyage")
+    public Student findByAge(@RequestParam int age){
+
+        return  service.findByAge(age);
     }
 }
