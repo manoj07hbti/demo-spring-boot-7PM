@@ -15,8 +15,6 @@ public class StudentDBController {
     @Autowired
     StudentService service;
 
-    @Autowired
-    StudentRepository repository;
 
     //C
     @PostMapping("/add_std_db")
@@ -60,5 +58,11 @@ public class StudentDBController {
     public Student findByAge(@RequestParam int age){
 
         return  service.findByAge(age);
+    }
+
+    @GetMapping("/findby_name_age")
+    public Student findByAge(@RequestParam String name,@RequestParam int age){
+
+        return  service.findByNameAndAge(name,age);
     }
 }

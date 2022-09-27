@@ -57,4 +57,9 @@ public class StudentService {
         return  repository.findByAge(age);
     }
 
+    public Student findByNameAndAge(String name, int age){
+
+        return  repository.findByNameAndAge(name,age);
+    }
+
 }
